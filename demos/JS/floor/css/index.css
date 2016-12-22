@@ -1,0 +1,33 @@
+body,
+div,
+header,
+ul,
+li,
+footer,
+span,
+img {
+	margin: 0;
+	padding: 0;
+	display: block;
+	border: none;
+	outline: none;
+	font-family: "微软雅黑";
+}
+
+li {
+	list-style: none;
+}
+
+.clearfix:after {
+	content: "\200B";
+	display: block;
+	height: 0;
+	clear: both;
+}
+
+
+/*IE/7/6*/
+
+.clearfix {
+	*zoom: 1;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>窗口固定小广告position: fixed;</title>
+		<style>
+		body{margin:0;padding:0;height:5000px; background: linear-gradient(to top,#b32ff2 0,#7a3ce9 100%);}
+			.d1{
+				top: 250px;
+				height: 200px;
+				width: 200px;
+				position: fixed;
+				padding: 1%;
+				border: 1px solid black;
+				background-color: red;
+			}
+			
+			.d2{
+				height: 100px;
+				width: 100px;
+				margin:15%;
+				padding: 5%;
+				border: 1px solid black;
+				background-color:yellowgreen;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="d1">
+			窗口固定小广告-父元素
+				<div class="d2">窗口固定小广告-子元素（没有设置定位属性）</div>
+		</div>
+		
+	</body>
+</html>

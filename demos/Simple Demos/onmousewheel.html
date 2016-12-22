@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>鼠标滚轮事件</title>
+		<style>
+			.box1{
+				width: 400px;
+				height: 400px;
+				background: #7A45E5;
+			}
+		</style>
+		
+		<script>
+		var box=document.querySelector(".box1");
+		box.onmousewheel=function(){
+				if(box.attachEvent){
+					box.attachEvent("onmousewheel",fun);
+				}else{
+					box.addEventListener("mousewheel",fun,false);
+					box.addEventListener("DOMMouseScroll",fun,false);
+				}
+		}
+	
+		function fun(e){
+			var ev=e || window.event;
+			var direction=ev.detail || ev.wheelDelta;
+				if(direction==120|| direction==-3){
+						wid=700+"px";
+						hei=700+"px";
+					}else if(direction==-120||direction==3){
+						box.style.width=300+"px";
+						box.style.height=300+"px";
+					}
+	}
+	</script>
+	</head>
+	<body>
+		
+		<div class="box1">
+			<h1>鼠标滚轮事件</h1>
+			<h4> 鼠标放在此区域，向下滚动滚轮，触发事件，改变盒子大小</h4>
+		</div>
+	</body>
+</html>

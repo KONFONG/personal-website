@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery1.12.3.js"></script>
+		<script src="jquery.mousewheel.js"></script>
+		<style>
+			*{  	margin: 0;
+					 padding: 0;
+			 }
+			.box{
+				position:relative;
+				overflow: hidden;
+			}
+			  .inner{width: 100%;
+		            height: 100%;
+		            position: absolute;
+            }
+			.inner img{
+			 width:100% ;	
+			 height:100% ;	
+			 margin: 0;
+			}
+			.btnbox{
+				position: absolute;
+				background-color: transparent;
+				right: 10px;
+				top: 40%;
+			}
+			.btn{
+				background:#FFF;
+				height: 15px;
+				width: 15px;
+				border-radius: 50%;
+				margin: 10px 5px;
+			}
+			.active{
+				height: 35px;
+				border-radius: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+					<div class="inner"><img src="1.jpg"/></div>
+					<div class="inner"><img src="2.jpg"/></div>
+					<div class="inner"><img src="3.JPG"/></div>
+					<div class="inner"><img src="4.JPG"/></div>
+					<div class="btnbox">
+						<div class="btn active"></div>
+						<div class="btn"></div>
+						<div class="btn"></div>
+						<div class="btn"></div>
+				    </div>
+		</div>
+	</body>
+	
+	<script>
+		var w=$(window).width();
+		var h=$(window).height();
+		$(".box").width(w).height(h);
+		$(".inner").css("top",h).eq(0).css("top",0);
+		    var now=0;
+		    var next=0;
+		    var flagd=true;
+		    var flagu=true;
+		    
+    $(".box").mousewheel(function(){
+    	if(flagu){
+    	next--;
+    	if(next<0){next=$('.inner').length-1}
+    	$(".inner").eq(next).css("top",-h);
+    	$(".inner").eq(now).animate({top:h})
+    	$(".inner").eq(next).animate({top:0},function(){flagu=true;})
+    	$(".btn").removeClass("active").eq(next).addClass("active")
+    	now=next;
+    	flagu=false
+    	}
+    },function(){
+    	if(flagd){
+	    	next++;
+	    	if(next>=$(".inner").length){
+	    		next=0
+    	}
+    	$(".inner").eq(next).css("top",h);
+    	$(".inner").eq(now).animate({top:-h})
+    	$(".inner").eq(next).animate({top:0},function(){
+    		flagd=true;
+    	})
+    	$(".btn").removeClass("active").eq(next).addClass("active")
+    	now=next;
+    	flagd=false
+    	}
+    })
+		
+	</script>
+</html>

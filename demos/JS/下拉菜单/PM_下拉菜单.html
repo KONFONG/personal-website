@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html><head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			.one{
+				color:white;
+				margin: 0 auto;
+				border: 1px solid black;
+				/*overflow: hidden;*/
+			}
+			
+			.one ul li{
+				border: 1px solid black;
+				background-color: yellowgreen;
+				display: inline-block;
+				width:120px;
+				height: 50px;
+				position: relative;
+				list-style: none;
+				z-index: 5;
+			}
+			
+			.down_list{
+				width:120px;
+				height:0px ;
+				background-color:#CCC;
+				position: absolute;
+				top:51px;
+				z-index:3;
+				transition: all 2s;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div class="one">
+			<ul>
+				<li>1
+					<div class="down_list">
+						11111111111111111111111111
+					</div>
+				</li>
+				
+				<li>2
+					<div class="down_list">
+						22222222222222222
+					</div>
+				</li>
+				
+				<li>3
+					<div class="down_list">
+						333333333333333333333333
+					</div>
+				</li>
+				
+				<li>4
+					<div class="down_list">
+						44444444444444444444
+					</div>
+				</li>
+				
+				<li>5
+					<div class="down_list">
+						5555555555555555555
+					</div>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script>
+
+	$("li").hover(
+		function(){$(".down_list").eq($(this).index()).css("height","200px")},
+		function(){$(".down_list").eq($(this).index()).css("height","0px")}
+	)
+	
+	
+	</script>
+</html>

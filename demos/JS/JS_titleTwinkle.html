@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>原生JS实现网页标题闪烁</title>
+		<style>
+			h1{
+				width: 100%;
+				display: inline-block;
+				margin: 5% 30%;
+				font-size:45px;
+				font-family: "微软雅黑";
+				font-weight: 900;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>几行js实现闪烁的title。</h1>
+	</body>
+	
+	<script type="text/javascript">
+		var record = 0;
+		var thisTitle = document.title;
+		
+		function titleTwinkle (){
+			record ++ ;
+			if(record == 1){
+				document.title = '【】' + thisTitle;
+			} else if(record == 2){
+					record = 0;
+					document.title= '【新消息】' + thisTitle;
+				}
+				setTimeout("titleTwinkle()",500);
+		}
+		
+		titleTwinkle ();
+	</script>
+</html>

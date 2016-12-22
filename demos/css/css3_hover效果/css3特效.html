@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.one{
+				height: 300px;
+				width: 300px;
+				overflow: hidden;
+			}
+			img{
+				transition:all 2s
+			}
+			.one:hover img{
+				transform:translateX(-100px);
+				opacity:0.95;
+			}
+			.word{
+				width:300px;
+				height:300px;
+				transition:all 2s;
+				opacity: 0.8;
+				background-color: #FFF;
+			}
+			.one:hover .word{
+				transform:translateY(-230px);
+			}
+/*===================================*/
+	#box{
+				width: 310px;
+				height: 210px;
+				position: relative;
+				text-align: center;
+				line-height:200px;
+			}
+			.box1{
+				left: 0;
+				top: 0;
+				border-top:5px solid black;
+				border-left: 5px solid black;
+			}
+			
+			.box2{
+				right:0;
+				bottom:0;
+				border-bottom:5px solid black;
+				border-right:5px solid black;
+			}
+			
+			.box1,.box2{
+				width: 0;
+				height: 0;
+				border:5px solid transparent;
+				position: absolute;
+				transition: all 1s;
+			}
+			
+			#box:hover .box1{
+				width: 299px;
+				height: 199px;
+				border-top: 5px solid black;
+				border-left: 5px solid black;
+			}
+			
+			#box:hover .box2{
+				width: 299px;
+				height: 199px;
+				border-bottom: 5px solid black;
+				border-right: 5px solid black;
+			}
+/*==========八卦阵==============*/
+			.big{
+				width:600px;
+				height:600px;
+				border:1px solid black;
+				margin:0 auto;
+				position:relative;
+				border-radius:50%;
+				overflow:hidden;
+				animation:zhuan 4s linear  infinite;
+			}
+			
+			.back_white{
+				width:300px;
+				height:100%;
+				background: white;
+				float:left;
+				border-radius:50%;
+			}
+			
+			.back_black{
+				width:300px;
+				height:100%;
+				background: black;
+				float:left;
+			}
+			
+			.top_big_wh{
+				width: 50%;
+				height: 50%;
+				margin: 0 auto;
+				background:black;
+				position: absolute;
+				left: 25%;
+				border-radius:50%;
+			}
+			
+			.top_big_bl{
+				width: 50%;
+				height: 50%;
+				margin: 0 auto;
+				left: 25%;
+				top:50%;
+				background: white;
+				position: absolute;
+				border-radius:50%;
+			}
+			
+			.top_sm_bl{
+				width: 50%;
+				height: 50%;
+				margin: 0 auto;
+				left: 25%;
+				top: 25%;
+				background:white;
+				border-radius:50%;
+				position: absolute;
+			}
+			
+			.top_sm_wh{
+				width: 50%;
+				height: 50%;
+				margin: 0 auto;
+				left: 25%;
+				top: 25%;
+				background:black;
+				position: absolute;
+				border-radius:50%;
+			}
+			
+			@keyframes  zhuan{
+				from{transform:ratate(0deg)}
+				to{transform:rotate(-360deg);}
+			}
+/*=======固定小广告=======*/
+				.d1{
+				top: 250px;
+				height: 200px;
+				width: 200px;
+				position: fixed;
+				padding: 1%;
+				border: 1px solid black;
+				background-color: red;
+			}
+			
+			.d2{
+				height: 100px;
+				width: 100px;
+				margin:15%;
+				padding: 5%;
+				border: 1px solid black;
+				background-color:yellowgreen;
+			}
+		</style>
+	</head>
+	<body>
+		<!--hover事件-->
+		<div class="one" style="display: inline-block;">
+			<img src="2.jpg"  />
+				<div class="word">
+				<h3>	这是div里面的文字。</h3>
+				<p>	2秒时间从底部往上提升。</p>
+				</div>
+		</div>
+		
+		<div id="box" style="float: left;margin: 1%;">
+			鼠标划进来 出现边框效果
+			<div class="box1"></div>
+			<div class="box2"></div>
+		</div>
+		
+		<!--八卦图-->
+		<div class="big">
+			<div class="back_white"></div>
+			<div class="back_black"></div>
+			<div class="top_big_wh">
+				    <div class="top_sm_bl"></div>
+			</div>
+			<div class="top_big_bl">
+				    <div class="top_sm_wh"></div>
+			</div>
+		</div>
+		
+		<!--固定小广告-->
+		<div class="d1">
+			窗口固定小广告-父元素
+				<div class="d2">窗口固定小广告-子元素（没有设置定位属性）</div>
+		</div>
+		
+	</body>
+</html>

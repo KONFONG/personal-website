@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/index.css" />
+		<style type="text/css">
+			header,
+			footer {
+				width: 100%;
+				height: 30em;
+				margin: 0 auto;
+			}
+			
+			.floor {
+				width: 90%;
+				height: 3em;
+				line-height: 3em;
+				margin: 0 auto;
+				font-size: 10em;
+				text-align: center;
+				font-weight: bold;
+				color: #FFFFCC;
+				text-shadow: 0 0 0.1em #FFF5EE, -0 -0 0.1em #FFF5EE;
+				box-shadow: inset 0 0 1em #211616;
+			}
+			
+			.nav {
+				position: fixed;
+				right: .1em;
+				top: .1em;
+				width: 3.3em;
+				display: none;
+				box-sizing: border-box;
+			}
+			
+			.nav li {
+				width: 3.3em;
+				height: 3.3em;
+				border: .1em solid #66CCCC;
+				line-height: 3.3em;
+				text-align: center;
+				overflow: hidden;
+				font-size: .9em;
+				font-weight: bold;
+				border-bottom: none;
+				box-sizing: border-box;
+			}
+			
+			.nav li:last-of-type {
+				border-bottom: .1em solid #66CCCC;
+			}
+			
+			.nav li.nav_top {
+				background-color: #4ABDB9;
+				color: #FFFFCC;
+			}
+			
+			.nav li.active span {
+				transition: all .3s;
+			}
+			
+			.nav li.active span,
+			.nav li.focus span,
+			.nav li.clicks span {
+				background-color: #4ABDB9;
+				color: #FFFFCC;
+				cursor: pointer;
+			}
+			
+			.nav li.active span:first-of-type,
+			.nav li.focus span:first-of-type,
+			.nav li.clicks span:first-of-type {
+				display: none;
+				cursor: pointer;
+			}
+		</style>
+		<script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<header></header>
+		<ul class="main">
+			<li class="floor" style="background-color: #4A9EBD;">1</li>
+			<li class="floor" style="background-color: #4ABDB9;">2</li>
+			<li class="floor" style="background-color: #90D73D;">3</li>
+			<li class="floor" style="background-color: #E3D02C;">4</li>
+			<li class="floor" style="background-color: #E37E2C;">5</li>
+			<li class="floor" style="background-color: #CC428D;">6</li>
+		</ul>
+		<footer></footer>
+		<ul class="nav">
+			<li class="nav_list">
+				<span>1F</span>
+				<span>一楼</span>
+			</li>
+			<li class="nav_list">
+				<span>2F</span>
+				<span>二楼</span>
+			</li>
+			<li class="nav_list">
+				<span>3F</span>
+				<span>三楼</span>
+			</li>
+			<li class="nav_list">
+				<span>4F</span>
+				<span>四楼</span>
+			</li>
+			<li class="nav_list">
+				<span>5F</span>
+				<span>五楼</span>
+			</li>
+			<li class="nav_list">
+				<span>6F</span>
+				<span>六楼</span>
+			</li>
+			<li class="nav_top">Top</li>
+		</ul>
+
+	</body>
+	<script type="text/javascript">
+		$(function () {
+			/*Tips鼠标移入移出事件*/
+			$('.nav_list').hover(
+				function () {
+					$(this).addClass('active');
+				},
+				function () {
+					$(this).removeClass('active');
+				}
+			);
+
+			$('.nav_top').click(function () {
+				$('body,html').filter(':not(:animated)').animate({
+					scrollTop: 0
+				}, 300);
+			});
+			/*页面滚动事件*/
+			$(window).scroll(function () {
+				var tops = $(this).scrollTop();
+				var firstTop = $('header').height() - 50;
+				if (tops > firstTop) {
+					$('.nav').show('slow');
+				}
+				else {
+					$('.nav').hide('slow');
+				}
+				/*楼层跳转*/
+				$('.floor').each(function (i, obj) {
+					var fTops = $(obj).offset().top - 50;
+					if (tops > fTops) {
+						$('.nav_list').eq(i).addClass('focus').siblings().removeClass('focus');
+					}
+				});
+			});
+			/*Tips点击事件*/
+			$('.nav_list').click(function () {
+				$(this).addClass('clicks');
+				var index = $(this).index();
+				var cTops = $('.floor').eq(index).offset().top;
+				$('body,html').filter(':not(:animated)').animate({
+					scrollTop: cTops
+				}, 300, function () {
+					$('.nav_list').eq(index).removeClass('clicks');
+				});
+			});
+		});
+	</script>
+
+</html>

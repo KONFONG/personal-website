@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{width: 750px;
+			     height: 291px;
+			     border: 1px solid red;
+			     margin: 0 auto;
+			     overflow: hidden;
+			     position: relative;}
+			.box img{position: absolute;
+			        left: 0 ;
+			        top:0;
+			        opacity: 0;}
+		    .btnbox{width: 200px;
+		            height:30px;
+		            position: absolute;
+		            bottom:30px;
+		            right: 110px;
+		           }
+		    .btn{width:30px;height: 30px;
+		         border-radius: 50%;
+		         background: #000;
+		         line-height: 30px;
+		         text-align: center;
+		         color: #FFFFFF;
+		         float: left;
+		         margin-right: 10px;}
+		         
+		    .left{
+		          left:0;
+		          }
+		          
+		    .right{right: 0;}
+		    
+		    .ce{  position: absolute;
+		          width: 30px;
+		          height: 50px;
+		          line-height: 50px;
+		          background: #000;
+		          opacity: 0.7;
+		          text-align: center;
+		          color: #FFF;
+		          top:50%;
+		          margin-top:-25px;}
+		    .z{z-index: -1;}
+		</style>
+
+	</head>
+	<body>
+		<div class="box">
+			<img src="images/1.jpg" style="opacity: 1;" alt="" />
+			<img src="images/2.jpg" alt="" />
+			<img src="images/3.jpg" alt="" />
+			<img src="images/4.jpg" alt="" />
+			<img src="images/5.jpg" alt="" />
+			<div class="btnbox">
+				<div class="btn" style="background: red;">1</div>
+				<div class="btn">2</div>
+				<div class="btn">3</div>
+				<div class="btn">4</div>
+				<div class="btn">5</div>
+			</div>
+			<div class="left ce">&lt;</div>
+			<div class="right ce">&gt;</div>
+		</div>
+	</body>
+		<script src="animate.js"></script>
+	
+	<script>
+		var img=document.getElementsByTagName("img");
+		var btn=document.getElementsByClassName("btn");
+		var box=document.getElementsByClassName("box")[0];
+		var left=document.getElementsByClassName("left")[0];
+		var right=document.getElementsByClassName("right")[0];
+		var num=0;
+		var n=0;
+		var t=setInterval(move,2000);
+		function move(){
+			num++;
+			
+			if(num==5){
+				num=0;
+			}
+			n=num;
+			for(var i=0;i<img.length;i++){
+				img[i].style.opacity=0;
+				btn[i].style.backgroundColor="black"
+			}
+		    btn[num].style.backgroundColor="red";
+		    if(n<0){
+		    	n=img.length-1;
+		        img[n].className="z";}else{
+		       	img[img.length-1].className="";
+		       }
+		    img[n].style.opacity=1;
+			animate(img[num],{opacity:1},600,Tween.Linear);
+			
+		}
+		box.onmouseover=function(){
+			clearInterval(t);
+		}
+		for(var i=0;i<btn.length;i++){
+			btn[i].index=i;
+			btn[i].onclick=function(){
+				for(var j=0;j<img.length;j++){
+					img[j].style.opacity=0;
+					btn[j].style.backgroundColor="black"
+				}
+				img[this.index].style.opacity=1;
+				this.style.backgroundColor="red";
+				num=this.index;
+			}
+		}
+		
+		box.onmouseout=function(){
+	       t=setInterval(move,2000)
+		}
+		right.onclick=function(){
+			move()
+		}
+		
+		left.onclick=function(){
+			num--;
+			if(num<0){
+				num=4;
+			}
+			for(var i=0;i<img.length;i++){
+				img[i].style.opacity=0;
+				btn[i].style.backgroundColor="black"
+			}
+			img[num].style.opacity=1;
+			btn[num].style.backgroundColor="red";
+		}
+	</script>
+</html>

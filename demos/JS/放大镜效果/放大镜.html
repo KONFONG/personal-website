@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>#sbox,
+#bbox {
+	width: 500px;
+	height: 300px;
+	border: 1px solid red;
+	float: left;
+	position: relative;
+}
+#sbox img {
+	width: 100%;
+	height: 100%;
+}
+#bbox {
+	margin-left: 20px;
+	overflow: hidden;
+	display: none;
+}
+#bbox img {
+	width: 800px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+#move {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: yellow;
+	display: none;
+}
+#zhezhao {
+	width: 500px;
+	height: 300px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+		</style>
+	</head>
+	<body>
+		<div id="sbox">
+			<img src="IMG_7706.JPG" alt="" />
+			<div id="move"></div>
+			<div id="zhezhao"></div>
+		</div>
+		<div id="bbox">
+			<img src="IMG_7706.JPG" alt="" id="bigimg"/>
+		</div>
+	</body>
+	<script>
+	
+var sbox=document.querySelector("#sbox");
+var bbox=document.querySelector("#bbox");
+var bigimg=document.querySelector("#bigimg");
+var move=document.querySelector("#move");
+var zhezhao=document.querySelector("#zhezhao");
+
+	zhezhao.onmouseover=function(){
+		bbox.style.display="block";
+		move.style.display="block"
+	}
+	zhezhao.onmouseout=function(){
+		bbox.style.display="none";
+		move.style.display="none";
+		
+	}
+	
+zhezhao.onmousemove=function(e){
+		var ev=e||window.event;
+		//通过事件对象获取鼠标相对于事件源的坐标；
+		var ox=ev.offsetX;
+		var oy=ev.offsetY;
+		//设置跟随鼠标移动的盒子的坐标值；
+		var mx=ox-move.offsetWidth/2;  
+		var my=oy-move.offsetHeight/2;
+		//判断跟随鼠标移动的盒子的移动范围。
+	if(mx<0){mx=0;}
+	if(mx>sbox.offsetWidth-move.offsetWidth){
+		mx=sbox.offsetWidth-move.offsetWidth;
+	}
+	if(my<0){
+		my=0;
+	}
+	if(my>sbox.offsetHeight-move.offsetHeight){
+		my=sbox.offsetHeight-move.offsetHeight;
+	}
+		move.style.left=mx+"px";
+		move.style.top=my+"px";
+		//获取比例，设置大图的移动（left，top）
+		var x=ox/sbox.offsetWidth;
+		var y=oy/sbox.offsetHeight;
+		bigimg.style.left= -(bigimg.offsetWidth-bbox.offsetWidth)*x+"px"
+		bigimg.style.top=-(bigimg.offsetHeight-bbox.offsetHeight)*y+"px";
+}
+	</script>
+</html>

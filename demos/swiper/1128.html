@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/swiper.css" />
+		<script type="text/javascript" src="js/swiper.min.js" ></script>
+	</head>
+	<style>
+		html,body{
+			padding: 0;margin: 0;
+		}
+		.swiper-container{
+			width: 100%;
+		/*	height: 500px;*/
+			color: #FFF;
+			font-family: "微软雅黑";
+			font-size:100px;
+			font-weight: 900;
+			text-align: center;
+			line-height: 500px;		
+}
+.swiper-button-prev,.swiper-button-next{
+	color: #FFF;
+	line-height: 100px;		
+	background-image:none ;
+}
+div.swiper-container div.swiper-button-next{
+	right:50px;
+}
+.bg{
+	width: 200%;
+	height: 100%;
+	position: absolute;
+}
+.swiper-pagination{
+	bottom:1%;
+	line-height: 10px;
+}
+.swiper-slide{
+	background: #FFF;
+	opacity: 0.5;
+}
+	</style>
+	<body>
+		<div class="swiper-container">
+			   <div class="bg" style="background: url(2.JPG);" data-swiper-parallax="-20%" data-swiper-parallax-duration="3000"></div>
+				<div class="swiper-wrapper">
+					 <div class="swiper-slide"><div data-swiper-parallax="-100" style="background: #CA4040;">1</div></div>
+					 <div class="swiper-slide"><div data-swiper-parallax="-100" style="background: #007AFF;">2</div></div>
+					 <div class="swiper-slide"><div data-swiper-parallax="-100" style="background: #CA4040">3</div></div>
+					 <div class="swiper-slide"><div data-swiper-parallax="-100" style="background: #007AFF;">4</div></div>
+					 <div class="swiper-slide"><div data-swiper-parallax="-100" style="background: #CA4040;">5</div></div>
+					 <div class="swiper-slide"><div data-swiper-parallax="-100"  style="background: #007AFF;">6</div></div>
+					 <!-- style="background: #4390EE;"-->
+				</div>
+			
+				 <!-- 如果需要分页器-->
+			    <div class="swiper-pagination"></div>
+			     
+			    <!-- 如果需要导航按钮 -->
+			    <div class="swiper-button-prev"><</div>
+			    <div class="swiper-button-next">></div>
+			    
+			    <!-- 如果需要滚动条-->
+			    <div class="swiper-scrollbar"></div>
+			    
+		</div>
+	</body>
+	<script>
+		
+		var a = new Swiper(".swiper-container",{
+			parallax : true,
+				direction:'horizontal',//水平切换			//direction: 'vertical',//上下滚动
+			    loop: false,
+			    
+			    // 如果需要分页器
+			    pagination: '.swiper-pagination',
+			    paginationClickable :true,
+			    paginationHide :true,
+			    
+			    // 如果需要前进后退按钮
+			    nextButton: '.swiper-button-next',
+			    prevButton: '.swiper-button-prev',
+			 
+			 // 如果需要滚动条
+			    scrollbar: '.swiper-scrollbar',
+			    scrollbarHide : true,
+				scrollbarDraggable : true ,
+			    scrollbarSnapOnRelease : true,
+
+			//自动播放
+               autoplay :3000,
+//              autoplayDisableOnInteraction:false,
+               
+              //初始化第一张放那一张
+              initialSlide :2,
+		
+					
+		
+		effect : 'coverflow',
+			slidesPerView: 3,
+			centeredSlides: true,
+			coverflow: {
+			            rotate: 30,
+			            stretch:5,
+			            depth: 20,
+			            modifier: 1,
+			            slideShadows : true,
+			        },	/**/
+			       
+			       //允许鼠标键盘控制
+				 keyboardControl : true,
+				 mousewheelControl : true,
+		})
+
+	</script>
+</html>
