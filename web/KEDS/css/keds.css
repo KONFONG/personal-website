@@ -1,0 +1,272 @@
+@charset "utf-8";
+/*--------------------全局变量-----------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+  display: inline-block;
+}
+.bgColor {
+  background: red;
+}
+.cursor {
+  cursor: pointer;
+}
+/*--------------------结束：全局变量-----------------------------*/
+.titleBox {
+  width: 100%;
+  height: 150px;
+  background: url(../img/TB1wfoULpXXXXbCXpXXSutbFXXX.jpg) repeat;
+}
+.titleBox .title_top {
+  height: 22%;
+  width: 990px;
+  margin: 0 auto;
+  background: url(../img/title_top_image.jpg) no-repeat;
+}
+.titleBox .title_bottom {
+  height: 78%;
+  width: 990px;
+  margin: 0 auto;
+}
+.brands_story {
+  width: 130px;
+  float: right;
+  height: 100%;
+  cursor: pointer;
+}
+.VIP_Store {
+  width: 100px;
+  float: right;
+  height: 100%;
+  margin-left: 2%;
+  opacity: 0.4;
+  cursor: pointer;
+}
+.title_bottom_top {
+  height: 63%;
+  background: url(../img/title_bottom_top01.jpg) no-repeat;
+}
+.title_botop_rig {
+  float: right;
+  width: 165px;
+  height: 100%;
+  cursor: pointer;
+}
+.title_bottom_nav {
+  height: 35%;
+  margin-top: 0.3%;
+  width: 100%;
+}
+.title_bottom_nav ul li {
+  margin-left: 1.9%;
+  cursor: pointer;
+}
+/*--------------------结束：全局变量-----------------------------*/
+/*--------------------------banner_carousel区域------------------------------------*/
+.banner_carousel {
+  height: 400px;
+  width: 100%;
+}
+.banner_carousel img {
+  cursor: pointer;
+  width: 100%;
+}
+/*----------------------结束：banner_carousel区域------------------------------------*/
+/*----------------------banner轮播图下方优惠卷------------------------------------*/
+.bannerDown {
+  width: 100%;
+}
+.bannerDown div {
+  width: 990px;
+  margin: 0 auto;
+  margin-top: 1%;
+}
+.bannerDown div img {
+  margin: 0;
+  float: left;
+  cursor: pointer;
+}
+/*----------------------结束：banner轮播图下方优惠卷------------------------------------*/
+/*----------------------优惠卷下方 客服区------------------------------------*/
+.helper {
+  width: 100%;
+}
+.helper div {
+  width: 990px;
+  margin: 0 auto;
+}
+.helper div img {
+  cursor: pointer;
+  margin-top: 1%;
+  display: block;
+}
+.helper div.helperDown_left {
+  width: 34.1%;
+  background: url(../img/helpper_bg.jpg) repeat-y;
+  border-right: 1px solid #666;
+  float: left;
+}
+.helper div.helperDown_left ul {
+  width: 340px;
+  margin-top: 10%;
+}
+.helper div.helperDown_left ul li {
+  cursor: pointer;
+  height: 30px;
+  margin-right: 5%;
+}
+.helper div.helperDown_right {
+  width: 65.8%;
+  float: left;
+  cursor: pointer;
+}
+/*----------------------结束：优惠卷下方 客服区------------------------------------*/
+/*----------------------客服区下方------------------------------------*/
+.helperDownBox {
+  width: 100%;
+}
+.helperDownBox div {
+  width: 990px;
+  margin: 0 auto;
+}
+.helperDownBox div img {
+  cursor: pointer;
+  float: left;
+}
+/*----------------------------固定背景图区域-------------------------------*/
+/*第一张固定背景图区域*/
+.fixBG {
+  background: url(../img/fixBG01.jpg) no-repeat;
+  width: 100%;
+  height: 600px;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.fixBG div {
+  width: 990px;
+  margin: 0 auto;
+  border: 1px transparent;
+}
+.fixBG div img {
+  margin-top: 10%;
+}
+/*结束：第一张固定背景图区域*/
+/*浮在上方的区块*/
+.floatBox {
+  width: 100%;
+}
+.floatBox div {
+  width: 995px;
+  height: 100%;
+  margin: 0 auto;
+}
+.floatBox div img {
+  display: block;
+  margin: 0;
+  float: left;
+  cursor: pointer;
+}
+/*结束：浮在上方的区块*/
+/*第2张固定背景图区域*/
+.fixBG02 {
+  background: url(../img/fixBG02.jpg) no-repeat;
+  width: 100%;
+  height: 600px;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.fixBG02 div {
+  width: 990px;
+  margin: 0 auto;
+  border: 1px transparent;
+}
+.fixBG02 div img {
+  margin-left: 60%;
+  margin-top: 10%;
+}
+/*结束：第2张固定背景图区域*/
+/*第3张固定背景图区域*/
+.fixBG03 {
+  background: url(../img/fixBG03.jpg) no-repeat;
+  width: 100%;
+  height: 600px;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.fixBG03 div {
+  width: 990px;
+  margin: 0 auto;
+  border: 1px transparent;
+}
+.fixBG03 div img {
+  width: 440px;
+  margin-top: 15%;
+}
+/*结束：第3张固定背景图区域*/
+/*第4张固定背景图区域*/
+.fixBG04 {
+  background: url(../img/fixBG04.jpg) no-repeat;
+  width: 100%;
+  height: 530px;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.fixBG04 div {
+  width: 990px;
+  margin: 0 auto;
+  border: 1px transparent;
+}
+.fixBG04 div img {
+  width: 440px;
+  margin-top: 15%;
+}
+/*结束：第4张固定背景图区域*/
+/*第5张固定背景图区域*/
+.fixBG05 {
+  background: url(../img/fixBG05.jpg) no-repeat;
+  width: 100%;
+  height: 530px;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.fixBG05 div {
+  width: 990px;
+  margin: 0 auto;
+  border: 1px transparent;
+}
+.fixBG05 div img {
+  width: 440px;
+  margin-top: 15%;
+}
+/*结束：第5张固定背景图区域*/
+/*----------------------------结束：固定背景图区域-------------------------------*/
+/*----------------------------网页底部-------------------------------*/
+.bottomBox {
+  width: 100%;
+  background: url(../img/bottomBg.jpg) repeat;
+}
+.bottomBox div {
+  width: 990px;
+  margin: 0 auto;
+}
+.bottomBox_white {
+  width: 99%;
+  border: 1px transparent;
+  background: #FFF;
+} /*----------------------------结束：网页底部-------------------------------*/
+.bottomBox_white div {
+  width: 80%;
+  font-size: 13px;
+  margin: 2% auto;
+}
+.bottomBox_white div a {
+  color: #000;
+  text-decoration: none;
+}
+.bottomBox_white div li {
+  color: #666;
+}
+/*# sourceMappingURL=keds.css.map */
